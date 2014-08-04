@@ -10,4 +10,6 @@ class Listing < ActiveRecord::Base
 	    end
 	end
 
+	belongs_to :user
+
 end
