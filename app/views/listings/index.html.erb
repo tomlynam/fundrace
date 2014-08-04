@@ -7,8 +7,10 @@
           <p><%= "is running #{listing.race}" %></p>
           <p><%= "to raise money for #{listing.cause}." %></p>
           <%= link_to 'Show', listing, class: "btn btn-link" %>
-          <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
-          <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+          <% if (user_signed_in?) && (current_user == listing.user) %>
+            <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
+            <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+          <% end %>
         </div>
     </div>
   <% end %>
@@ -17,4 +19,6 @@
 
 <br>
 
-<%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>
+<% if user_signed_in? %>
+  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>
+<% end %>
