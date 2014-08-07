@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
 
-  ##validates :avatar, presence: true
+  ##validates :avatar, presence: true 
 
   has_many :listings, dependent: :destroy
 
