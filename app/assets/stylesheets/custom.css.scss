@@ -17,7 +17,6 @@ body {
   font-weight: bold
 }
 
-
 .navbar-default .navbar-nav > li > a {
   font-family: Arial, helvetica, sans-serif;
   font-size: 14px;
@@ -28,7 +27,6 @@ body {
 .center {
   text-align: center;
 }
-
 
 .col-md-8 {
   h3 {font-size: 45px;}
@@ -45,4 +43,17 @@ body {
     font-size: 15px;
     margin: 0px;
   }
+}
+
+.jumbotron {
+  background-image: url(http://www.lussierphoto.com/wp-content/gallery/marathon/rtl_baa_starting_line.jpg);
+  position: relative;
+  background-position: 0% 25%;
+  background-size: cover;
+  
+}
+
+.jumbotron h1, h2 {
+  font-family: raleway, helvetica, sans-serif;
+  color: #ffffff;
 }
