@@ -10,8 +10,6 @@
 
 <%= render 'layouts/header' %>
 
-<%= yield %>
-
 <div class="container">
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>
@@ -21,6 +19,9 @@
       </div>
     <% end %>
   <% end %>
+
+  <%= yield %>
+
 </div>
 
 <%= render 'layouts/footer' %>
