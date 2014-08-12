@@ -10,6 +10,10 @@
 
 <%= render 'layouts/header' %>
 
+<% if current_page?(root_url) %>
+  <%= yield %>
+<% end %>
+
 <div class="container">
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>
@@ -20,7 +24,10 @@
     <% end %>
   <% end %>
 
-  <%= yield %>
+
+  <% if !current_page?(root_url) %>
+    <%= yield %>
+  <% end %>
 
 </div>
 
