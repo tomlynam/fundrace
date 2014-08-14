@@ -29,6 +29,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     @listing.name = current_user.name
+    @listing.image = current_user.avatar
 
     respond_to do |format|
       if @listing.save
@@ -73,7 +74,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :race, :raceday, :cause)
+      params.require(:listing).permit(:name, :race, :raceday, :cause, :avatar, :avatar_file_name)
     end
 
     def check_user

@@ -6,8 +6,8 @@ class ProfilesController < ApplicationController
 
 private
 
-# Use strong_parameters for attribute whitelisting
-# Be sure to update your create() and update() controller methods.
+	# Use strong_parameters for attribute whitelisting
+	# Be sure to update your create() and update() controller methods.
 
 	def user_params
 	  params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
