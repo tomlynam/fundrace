@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  listing_id: 
+  name: MyString
+  email: MyString
+  starting_bet: 1.5
+  maximum_bet: 1.5
+  bonus_per_minute: 1.5
+  projected_finish_time: MyString
+
+two:
+  listing_id: 
+  name: MyString
+  email: MyString
+  starting_bet: 1.5
+  maximum_bet: 1.5
+  bonus_per_minute: 1.5
+  projected_finish_time: MyString
