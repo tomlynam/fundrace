@@ -2,13 +2,13 @@ class BetsController < ApplicationController
   def create
     bet = Bet.create(bet_params)
     bet.listing_id = params[:listing_id]
-    if bet.save!
-      redirect_to listings_url(params[:listing_id]), flash: {
-        success: 'Your bet has been placed. Wish your runner good luck!'
+    if bet.save
+      redirect_to listing_url(params[:listing_id]), flash: {
+        notice: 'Your bet has been placed. Wish your runner good luck!'
       }
     else
-      redirect_to listings_url(params[:listing_id]), flash: {
-        success: 'Uh oh, something broke. Please contact the dev team.'
+      redirect_to listing_url(params[:listing_id]), flash: {
+        error: 'Something went wrong. Please make sure you filled out all fields.'
       }
     end
   end
