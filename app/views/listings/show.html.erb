@@ -25,15 +25,17 @@
     </tr>
   </thead>
   <tbody>
-    <% @listing.bets.each do |bet| %>
-      <tr>
-        <td><%= bet.name %></td>
-        <td><%= bet.email %></td>
-        <td><%= bet.starting_bet %></td>
-        <td><%= bet.maximum_bet %></td>
-        <td><%= bet.bonus_per_minute %></td>
-        <td><%= bet.projected_finish_time %></td>
-      </tr>
+    <% if @listing.bets.present? %>
+      <% @listing.bets.each do |bet| %>
+        <tr>
+          <td><%= bet.name %></td>
+          <td><%= bet.email %></td>
+          <td><%= bet.starting_bet %></td>
+          <td><%= bet.maximum_bet %></td>
+          <td><%= bet.bonus_per_minute %></td>
+          <td><%= bet.projected_finish_time %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
