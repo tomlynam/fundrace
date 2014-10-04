@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804004239) do
+ActiveRecord::Schema.define(version: 20141004223704) do
+
+  create_table "bets", force: true do |t|
+    t.integer  "listing_id"
+    t.string   "name"
+    t.string   "email"
+    t.float    "starting_bet"
+    t.float    "maximum_bet"
+    t.float    "bonus_per_minute"
+    t.string   "projected_finish_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bets", ["listing_id"], name: "index_bets_on_listing_id"
 
   create_table "listings", force: true do |t|
     t.string   "name"

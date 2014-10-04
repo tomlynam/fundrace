@@ -1,6 +1,8 @@
 Fundrace::Application.routes.draw do
   devise_for :users
-  resources :listings
+  resources :listings do
+   resources :bets
+  end
 
   get "pages/about"
   get "pages/contact"

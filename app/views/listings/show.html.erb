@@ -12,7 +12,59 @@
   <p>Make me a bet.</p>
   </div>
 </div>
+<br />
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Starting Bet</th>
+      <th>Maximum Bet</th>
+      <th>Bonus Per Minute</th>
+      <th>Projected Finish Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @listing.bets.each do |bet| %>
+      <tr>
+        <td><%= bet.name %></td>
+        <td><%= bet.email %></td>
+        <td><%= bet.starting_bet %></td>
+        <td><%= bet.maximum_bet %></td>
+        <td><%= bet.bonus_per_minute %></td>
+        <td><%= bet.projected_finish_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
+<%= form_tag listing_bets_path(@listing.id), method: :post do %>
+  <div class="form-group">
+    <%= label_tag :name %>:
+    <%= text_field_tag 'bet[name]' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :email %>:
+    <%= text_field_tag 'bet[email]' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :starting_bet %>:
+    <%= text_field_tag 'bet[starting_bet]' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :maximum_bet %>:
+    <%= text_field_tag 'bet[maximum_bet]' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :bonus_per_minute %>:
+    <%= text_field_tag 'bet[bonus_per_minute]' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :projected_finish_time %>:
+    <%= text_field_tag 'bet[projected_finish_time]' %>
+  </div>
+  <%= submit_tag 'Bet' %>
+<% end %>
 
 <% if current_user == @listing.user %>
   <%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |
