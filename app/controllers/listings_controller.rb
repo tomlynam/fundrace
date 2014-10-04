@@ -29,7 +29,6 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     @listing.name = current_user.name
-    @listing.image = current_user.avatar
 
     respond_to do |format|
       if @listing.save
