@@ -5,13 +5,13 @@
     </div>
   </div>
 
-
   <div class="col-md-8">
-	<h3>My name is <%= @listing.user.name %>.</h3>
-	<p>I am running the <%= @listing.race %> on <%= @listing.raceday %> to raise money for <%= @listing.cause %>. </p>
-  <p>Make me a bet.</p>
+  	<h3>My name is <%= @listing.user.name %>.</h3>
+  	<p>I am running the <%= @listing.race %> on <%= @listing.raceday %> to raise money for <%= @listing.cause %>. </p>
+    <p>Make me a bet.</p>
   </div>
 </div>
+
 <br />
 <table class="table table-striped">
   <thead>
@@ -39,6 +39,7 @@
     <% end %>
   </tbody>
 </table>
+
 
 <h3>Place your bet:</h3>
 <%= form_tag listing_bets_path(@listing.id), method: :post do %>
@@ -68,6 +69,7 @@
   </div>
   <%= submit_tag 'Bet' %>
 <% end %>
+
 
 <% if current_user == @listing.user %>
   <%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |
