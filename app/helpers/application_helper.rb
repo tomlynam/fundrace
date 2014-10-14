@@ -25,5 +25,4 @@ module ApplicationHelper
   # Add the modified method to ApplicationHelper
   include BootstrapExtension
 
-
 end

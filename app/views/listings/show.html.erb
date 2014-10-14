@@ -1,3 +1,5 @@
+<br>
+
 <div class="row">
   <div class="col-md-4">
   	<div class="thumbnail">
@@ -7,12 +9,13 @@
 
   <div class="col-md-8">
   	<h3>My name is <%= @listing.user.name %>.</h3>
-  	<p>I am running the <%= @listing.race %> on <%= @listing.raceday %> to raise money for <%= @listing.cause %>. </p>
+  	<h2>I am running the <%= @listing.race %> on <%= @listing.raceday %> to raise money for <%= @listing.cause %>. </h2>
     <p>Make me a bet.</p>
   </div>
 </div>
 
-<br />
+<div class="panel panel-default">
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -30,44 +33,44 @@
         <tr>
           <td><%= bet.name %></td>
           <td><%= bet.email %></td>
-          <td><%= bet.starting_bet %></td>
-          <td><%= bet.maximum_bet %></td>
-          <td><%= bet.bonus_per_minute %></td>
+          <td><%= number_to_currency(bet.starting_bet) %></td>
+          <td><%= number_to_currency(bet.maximum_bet) %></td>
+          <td><%= number_to_currency(bet.bonus_per_minute) %></td>
           <td><%= bet.projected_finish_time %></td>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
-
+</div>
 
 <h3>Place your bet:</h3>
 <%= form_tag listing_bets_path(@listing.id), method: :post do %>
   <div class="form-group">
     <%= label_tag :name %>:
-    <%= text_field_tag 'bet[name]' %>
+    <%= text_field_tag 'bet[name]', placeholder="Bob Smith" %>
   </div>
   <div class="form-group">
     <%= label_tag :email %>:
-    <%= text_field_tag 'bet[email]' %>
+    <%= text_field_tag 'bet[email]', placeholder="bob@me.com" %>
   </div>
   <div class="form-group">
     <%= label_tag :starting_bet %>:
-    <%= text_field_tag 'bet[starting_bet]' %>
+    <%= text_field_tag 'bet[starting_bet]', placeholder="10" %>
   </div>
   <div class="form-group">
     <%= label_tag :maximum_bet %>:
-    <%= text_field_tag 'bet[maximum_bet]' %>
+    <%= text_field_tag 'bet[maximum_bet]', placeholder="100" %>
   </div>
   <div class="form-group">
     <%= label_tag :bonus_per_minute %>:
-    <%= text_field_tag 'bet[bonus_per_minute]' %>
+    <%= text_field_tag 'bet[bonus_per_minute]', placeholder="1" %>
   </div>
   <div class="form-group">
     <%= label_tag :projected_finish_time %>:
-    <%= text_field_tag 'bet[projected_finish_time]' %>
+    <%= text_field_tag 'bet[projected_finish_time]', placeholder="4:00" %>
   </div>
-  <%= submit_tag 'Bet' %>
+  <%= submit_tag 'Bet', class: "btn btn-primary" %>
 <% end %>
 
 
