@@ -9,7 +9,7 @@
 
   <div class="col-md-8">
   	<h3>My name is <%= @listing.user.name %>.</h3>
-  	<h2>I am running the <%= @listing.race %> on <%= @listing.raceday %> to raise money for <%= @listing.cause %>. </h2>
+  	<h2>I am running the <%= @listing.race %> on <%= @listing.raceday.strftime("%B %d, %Y") %> to raise money for <%= @listing.cause %>. </h2>
     <p>Make me a bet.</p>
   </div>
 </div>
