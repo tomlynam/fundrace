@@ -71,6 +71,22 @@
     <%= text_field_tag 'bet[projected_finish_time]', nil, placeholder: '4:00' %>
   </div>
 
+  <hr/>
+  <div class="form-group">
+    <%= label_tag :cc_number, 'Credit card number' %>:
+    <%= text_field_tag 'payment[cc_number]', nil, placeholder: '4242424242424242' %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :cc_exp, 'Expiration Date' %>:
+    <%= text_field_tag 'payment[cc_exp]', nil, placeholder: '08/19' %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :cc_ccv, 'CCV' %>:
+    <%= text_field_tag 'payment[cc_ccv]', nil, placeholder: '123' %>
+  </div>
+
   <div>
     <input type="submit" value="Pay via card" class="btn btn-primary" />
   </div>
