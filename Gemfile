@@ -16,6 +16,9 @@ gem "figaro"
 
 gem 'pry'
 
+# to make charges
+gem 'stripe'
+
 
 group :development do
   gem 'better_errors'
