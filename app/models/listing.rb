@@ -11,4 +11,15 @@ class Listing < ActiveRecord::Base
     end
 	end
 
+	def complete
+		bets.each do |bet|
+		  donator = User.find_by_email(bet.email)
+		  Stripe::Charge.create(
+		    customer: donator.stripe_customer_id,
+		    amount: (bet.calculated_amount * 100).to_i,
+		    description: "Fundrace: #{raceday} for #{cause}",
+		    currency: 'usd'
+		  )
+		end
+	end
 end

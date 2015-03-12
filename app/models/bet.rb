@@ -5,4 +5,7 @@ class Bet < ActiveRecord::Base
                         :maximum_bet, :bonus_per_minute,
                         :projected_finish_time
 
+  def calculated_amount
+    starting_bet
+  end
 end
