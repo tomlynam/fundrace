@@ -70,21 +70,10 @@
     <%= label_tag :projected_finish_time %>:
     <%= text_field_tag 'bet[projected_finish_time]', nil, placeholder: '4:00' %>
   </div>
-  
-  <div>
-    <form action="/charge" method="POST">
-      <script 
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="pk_test_7LBIJ9CnZmeLkVI843becSRH"
-        data-image="http://i.imgur.com/HkeZ7xF.jpg"
-        data-name="Fundrace"
-        data-description="Bill ya later, bro"
-        data-amount="0">
-        <%= submit_tag %>
-      </script>
-    </form>
-  </div>
 
+  <div>
+    <input type="submit" value="Pay via card" class="btn btn-primary" />
+  </div>
 <% end %>
 
 <% if current_user == @listing.user %>
