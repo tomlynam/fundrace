@@ -44,51 +44,50 @@
 </table>
 </div>
 
-<h3>Place your bets!</h3>
-<%= form_tag listing_bets_path(@listing.id), method: :post do %>
-  <div class="form-group">
-    <%= label_tag :name %>:
-    <%= text_field_tag 'bet[name]', nil, placeholder: 'Alan Webb' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :email %>:
-    <%= text_field_tag 'bet[email]', nil, placeholder: 'bob@me.com' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :starting_bet %>:
-    <%= text_field_tag 'bet[starting_bet]', nil, placeholder: '$10' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :maximum_bet %>:
-    <%= text_field_tag 'bet[maximum_bet]', nil, placeholder: '$100' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :bonus_per_minute %>:
-    <%= text_field_tag 'bet[bonus_per_minute]', nil, placeholder: '$1' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :projected_finish_time %>:
-    <%= text_field_tag 'bet[projected_finish_time]', nil, placeholder: '4:00' %>
-  </div>
+<% if user_signed_in? %>
+  <h3>Place your bets!</h3>
+  <%= form_tag listing_bets_path(@listing.id), method: :post do %>
+    <div class="form-group">
+      <%= label_tag :starting_bet %>:
+      <%= text_field_tag 'bet[starting_bet]', nil, placeholder: '$10' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :maximum_bet %>:
+      <%= text_field_tag 'bet[maximum_bet]', nil, placeholder: '$100' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :bonus_per_minute %>:
+      <%= text_field_tag 'bet[bonus_per_minute]', nil, placeholder: '$1' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :projected_finish_time %>:
+      <%= text_field_tag 'bet[projected_finish_time]', nil, placeholder: '4:00' %>
+    </div>
 
-  <hr/>
-  <div class="form-group">
-    <%= label_tag :cc_number, 'Credit card number' %>:
-    <%= text_field_tag 'payment[cc_number]', nil, placeholder: '4242424242424242' %>
-  </div>
+    <hr />
 
-  <div class="form-group">
-    <%= label_tag :cc_exp, 'Expiration Date' %>:
-    <%= text_field_tag 'payment[cc_exp]', nil, placeholder: '08/19' %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :cc_number, 'Credit card number' %>:
+      <%= text_field_tag 'payment[cc_number]', nil, placeholder: '4242424242424242' %>
+    </div>
 
-  <div class="form-group">
-    <%= label_tag :cc_ccv, 'CCV' %>:
-    <%= text_field_tag 'payment[cc_ccv]', nil, placeholder: '123' %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :cc_exp, 'Expiration Date' %>:
+      <%= text_field_tag 'payment[cc_exp]', nil, placeholder: '08/19' %>
+    </div>
 
-  <div>
-    <input type="submit" value="Pay via card" class="btn btn-primary" />
+    <div class="form-group">
+      <%= label_tag :cc_ccv, 'CCV' %>:
+      <%= text_field_tag 'payment[cc_ccv]', nil, placeholder: '123' %>
+    </div>
+
+    <div>
+      <input type="submit" value="Pay via card" class="btn btn-primary" />
+    </div>
+  <% end %>
+<% else %>
+  <div class="alert alert-warning" style="text-align:center">
+    You must be signed in to place a bet. <%= link_to "Create an account", new_registration_path('user') %> to get started.
   </div>
 <% end %>
 
